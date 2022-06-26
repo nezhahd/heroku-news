@@ -1,8 +1,94 @@
-### 关注甬哥项目https://gitlab.com/rwkgyg/
+一、操作步骤：
 
-### 请下载以上代码，使用Github进行代码托管并连接heroku
-![c14a9fd3dfe0361393dcc7cd693cc36](https://user-images.githubusercontent.com/107276912/173172932-142f6c9a-7f7f-424b-a178-aa43772a7511.png)
+1、在浏览器复制链接   https://dashboard.heroku.com/new?template= 加上上传至Github的项目地址链接，回车进入Heroku参数设置界面
 
+本项目链接： https://dashboard.heroku.com/new?template=https://github.com/nezhahd/heroku-news
+
+2、之前没有登录记录的话，会先提示注册并或登录Heroku界面，大家自己注册或者登录下
+
+
+
+3、Heroku app名称与国家随意，最后设置图如下
+
+
+
+4、输入UUID，建议使用V2rayN等工具生成，点击Deploy app，几秒种后就完成安装。
+
+
+
+5、与视频教程有出入的地方：由于更新后使用了Caddy，未设伪装网页，所以点击heroku本地域名时（app.heroku.com）为空白界面，所有反代（workers与pages）测试为绿色200 ok，反代地址也为空白界面，请大家知晓。
+
+
+
+6、关于heroku封杀特征说明（甬哥已亲身经历过以下三次被封）：
+
+一、项目部署时被强制中断封杀
+
+二、项目部署后，测个速度也会被封杀
+
+三、项目部署后，不跑流量，放着不动也会被封杀
+
+已证实，heroku封杀看特性，不看流量大小。之前的项目是明文，现在加密了，测试了几周没问题，所以大家可以试试看。
+
+-------------------------------------------------------------------------------------------
+
+二、关于为什么套CF以及满足自选IP/域名的条件解答（443端口，且TLS开启）
+
+
+
+三、客户端配置如下
+
+IOS端小火箭就可以通吃，安卓端推荐V2rayNG或搭配Kitsunebi
+
+协议：(vless/vmess/trojan)-ws
+
+地址：app.heroku.com（自选IP/域名）
+
+端口：443
+
+用户ID/密码：自定义UUID
+
+传输协议：ws
+
+伪装host：app.heroku.com（workers或pages反代/自定义域）
+
+路径path：/自定义UUID-协议开头两小写字母
+
+传输安全：tls
+
+SNI：app.heroku.com（workers或pages反代/自定义域）
+
+其他设置保持默认即可！
+
+
+
+shadowsocks-ws与socks5-ws推荐用Kitsunebi，配置简单，不需要plugin插件
+
+协议：(shadowsocks/socks5)-ws
+
+地址：app.heroku.com（自选IP/域名）
+
+端口：443
+
+shadowsocks密码：自定义UUID
+
+shadowsocks加密方式：chacha20-ietf-poly1305(默认)
+
+socks5用户名：空
+
+socks5密码：空
+
+传输协议：ws
+
+伪装host：app.heroku.com（workers或pages反代/自定义域）
+
+路径path：/自定义UUID-协议开头两小写字母
+
+传输安全：tls
+
+SNI(证书域名)：app.heroku.com（workers或pages反代/自定义域）
+
+其他设置保持默认即可！
 
 ### workers反代与pages反代及自定义域，配置文件信息等相关操作拓展教程，请关注：[博客视频教程](https://ygkkk.blogspot.com/2022/05/heroku-cloudflare-workers-pages.html)
 
