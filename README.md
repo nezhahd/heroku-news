@@ -90,8 +90,6 @@ SNI(证书域名)：app.heroku.com（workers或pages反代/自定义域）
 
 其他设置保持默认即可！
 
-### workers反代与pages反代及自定义域，配置文件信息等相关操作拓展教程，请关注：[博客视频教程](https://ygkkk.blogspot.com/2022/05/heroku-cloudflare-workers-pages.html)
-
 
 ### CloudFlare Workers反代代码（可分别用两个账号的应用程序名（`path路径`、`协议`、`UUID`保持一致），单双号天分别执行，那一个月就有550+550小时（每个账号一个月免费使用550小时））
 <details>
